@@ -31,11 +31,16 @@ const VenueInfo = styled.div`
 
 const MapContainer = styled.div`
   width: 100%;
-  height: 300px;
+  height: 500px;
+
   background-color: #eee;
   margin-bottom: 2rem;
   border-radius: 8px;
   overflow: hidden;
+
+  @media (max-width: 768px) {
+    height: 300px;
+  }
 `;
 
 const TransportInfo = styled.div`
