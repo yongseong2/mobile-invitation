@@ -206,10 +206,9 @@ const Navigation = () => {
     <NavContainer isTop={isTop}>
       <NavList isOpen={isOpen}>
         <NavItem onClick={() => scrollToSection('gallery')}>Gallery</NavItem>
-        <NavItem onClick={() => scrollToSection('main')}>Our Story</NavItem>
-        <NavItem onClick={() => scrollToSection('info')}>Information</NavItem>
-        <NavItem onClick={() => scrollToSection('location')}>Location</NavItem>
-        <NavItem onClick={() => scrollToSection('contact')}>Contact</NavItem>
+        <NavItem onClick={() => scrollToSection('info')}>Wedding</NavItem>
+        <NavItem onClick={() => scrollToSection('guide')}>Guide</NavItem>
+        <NavItem onClick={() => scrollToSection('gift')}>Gift</NavItem>
       </NavList>
       <HamburgerButton
         onClick={() => setIsOpen(!isOpen)}

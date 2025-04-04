@@ -35,7 +35,7 @@ const MainImage = () => {
   return (
     <MainImageContainer>
       <Title>Wedding Invitation</Title>
-      <Names>신랑 ♥ 신부</Names>
+      <Names>철수 ♥ 영희</Names>
       <Date>2024. 00. 00 SAT PM 12:00</Date>
     </MainImageContainer>
   );

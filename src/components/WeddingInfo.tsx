@@ -6,26 +6,47 @@ const Container = styled.section`
   background-color: #f9f9f9;
   position: relative;
   overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+`;
 
-  &::before {
-    content: '"';
-    position: absolute;
-    top: 2rem;
-    left: 50%;
-    transform: translateX(-50%);
-    font-size: 8rem;
-    color: rgba(0, 0, 0, 0.05);
-    font-family: serif;
-  }
+const MotionContainer = styled(motion.div)`
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 `;
 
 const Title = styled(motion.h2)`
   text-align: center;
   font-size: 2rem;
   margin-bottom: 3rem;
-  color: #333;
+  color: #ff6b8b;
   font-weight: 300;
   letter-spacing: 2px;
+  position: relative;
+  width: fit-content;
+  font-family: 'Cormorant Garamond', serif;
+
+  &::before,
+  &::after {
+    content: '"';
+    position: absolute;
+    font-size: 3rem;
+    color: #ffd1dc;
+    font-family: serif;
+  }
+
+  &::before {
+    left: -2rem;
+    top: -1rem;
+  }
+
+  &::after {
+    right: -2rem;
+    bottom: -1.5rem;
+  }
 `;
 
 const Message = styled(motion.p)`
@@ -98,7 +119,7 @@ const WeddingInfo = () => {
 
   return (
     <Container>
-      <motion.div
+      <MotionContainer
         variants={containerVariants}
         initial='hidden'
         whileInView='visible'
@@ -124,10 +145,10 @@ const WeddingInfo = () => {
             김OO · 이OO의 장남 <strong>철수</strong>
           </p>
           <p>
-            박OO · 최OO의 장녀 <strong>영희</strong>
+            김OO · 최OO의 장녀 <strong>영희</strong>
           </p>
         </FamilyInfo>
-      </motion.div>
+      </MotionContainer>
     </Container>
   );
 };

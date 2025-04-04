@@ -5,6 +5,9 @@ import Gallery from './components/Gallery';
 import Location from './components/Location';
 import Contact from './components/Contact';
 import Navigation from './components/Navigation';
+import GiftMoney from './components/GiftMoney';
+import VideoPlayer from './components/VideoPlayer';
+import Calendar from './components/Calendar';
 
 const AppContainer = styled.div`
   margin: 0 auto;
@@ -29,15 +32,18 @@ function App() {
       <Navigation />
       <Section id='gallery'>
         <Gallery />
-      </Section>
-      <Section id='main'>
         <MainImage />
       </Section>
       <Section id='info'>
         <WeddingInfo />
+        <VideoPlayer />
       </Section>
-      <Section id='location'>
+      <Section id='guide'>
+        <Calendar />
         <Location />
+      </Section>
+      <Section id='gift'>
+        <GiftMoney />
       </Section>
       <Section id='contact'>
         <Contact />

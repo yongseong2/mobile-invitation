@@ -4,13 +4,39 @@ import { FaSubway, FaBus, FaCar } from 'react-icons/fa';
 const Container = styled.section`
   padding: 4rem 2rem;
   background-color: #f9f9f9;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 `;
 
 const Title = styled.h2`
   text-align: center;
-  font-size: 1.8rem;
-  margin-bottom: 2rem;
-  color: #333;
+  font-size: 2rem;
+  margin-bottom: 3rem;
+  color: #ff6b8b;
+  font-weight: 300;
+  letter-spacing: 2px;
+  position: relative;
+  width: fit-content;
+  font-family: 'Cormorant Garamond', serif;
+  &::before,
+  &::after {
+    content: '"';
+    position: absolute;
+    font-size: 3rem;
+    color: #ffd1dc;
+    font-family: serif;
+  }
+
+  &::before {
+    left: -2rem;
+    top: -1rem;
+  }
+
+  &::after {
+    right: -2rem;
+    bottom: -1.5rem;
+  }
 `;
 
 const VenueInfo = styled.div`

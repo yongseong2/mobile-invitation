@@ -4,13 +4,40 @@ import { FaPhone, FaHeart } from 'react-icons/fa';
 const Container = styled.section`
   padding: 4rem 2rem;
   background-color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 `;
 
 const Title = styled.h2`
   text-align: center;
-  font-size: 1.8rem;
-  margin-bottom: 2rem;
-  color: #333;
+  font-size: 2rem;
+  margin-bottom: 3rem;
+  color: #ff6b8b;
+  font-weight: 300;
+  letter-spacing: 2px;
+  position: relative;
+  width: fit-content;
+  font-family: 'Cormorant Garamond', serif;
+
+  &::before,
+  &::after {
+    content: '"';
+    position: absolute;
+    font-size: 3rem;
+    color: #ffd1dc;
+    font-family: serif;
+  }
+
+  &::before {
+    left: -2rem;
+    top: -1rem;
+  }
+
+  &::after {
+    right: -2rem;
+    bottom: -1.5rem;
+  }
 `;
 
 const ContactGrid = styled.div`
@@ -68,6 +95,13 @@ const Footer = styled.footer`
   font-size: 0.9rem;
 `;
 
+const Copyright = styled.p`
+  margin-top: 1rem;
+  color: #aaa;
+  font-size: 0.8rem;
+  font-weight: 300;
+`;
+
 const Contact = () => {
   const handleCall = (number: string) => {
     window.location.href = `tel:${number}`;
@@ -95,6 +129,7 @@ const Contact = () => {
       <Footer>
         <FaHeart style={{ color: '#ff6b6b', marginRight: '0.5rem' }} />
         2024년 00월 00일
+        <Copyright>© 2024 김철수. All rights reserved.</Copyright>
       </Footer>
     </Container>
   );
