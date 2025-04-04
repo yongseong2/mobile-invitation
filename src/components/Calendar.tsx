@@ -158,7 +158,7 @@ const Calendar = () => {
           </InfoItem>
         </InfoList>
         <AddToCalendarButton onClick={handleAddToCalendar}>
-          <FaRegCalendarAlt /> 캘린더에 일정 추가하기
+          <FaRegCalendarAlt /> 일정 추가하기
         </AddToCalendarButton>
       </CalendarCard>
     </Container>
