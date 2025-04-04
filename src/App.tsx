@@ -27,6 +27,7 @@ const Section = styled.section`
 `;
 
 function App() {
+  console.log('Test');
   return (
     <AppContainer>
       <Navigation />
