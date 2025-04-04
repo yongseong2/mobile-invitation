@@ -1,7 +1,9 @@
 import styled from '@emotion/styled';
 import { FaPhone, FaHeart } from 'react-icons/fa';
+import { motion } from 'framer-motion';
+import { containerVariants, itemVariants } from '../util/animation';
 
-const Container = styled.section`
+const Container = styled(motion.section)`
   padding: 4rem 2rem;
   background-color: white;
   display: flex;
@@ -9,7 +11,7 @@ const Container = styled.section`
   align-items: center;
 `;
 
-const Title = styled.h2`
+const Title = styled(motion.h2)`
   text-align: center;
   font-size: 2rem;
   margin-bottom: 3rem;
@@ -48,7 +50,7 @@ const ContactGrid = styled.div`
   margin: 0 auto;
 `;
 
-const ContactCard = styled.div`
+const ContactCard = styled(motion.div)`
   text-align: center;
 
   h3 {
@@ -108,17 +110,22 @@ const Contact = () => {
   };
 
   return (
-    <Container>
-      <Title>연락하기</Title>
+    <Container
+      variants={containerVariants}
+      initial='hidden'
+      whileInView='visible'
+      viewport={{ once: true, margin: '-100px' }}
+    >
+      <Title variants={itemVariants}>연락하기</Title>
       <ContactGrid>
-        <ContactCard>
+        <ContactCard variants={itemVariants}>
           <h3>신랑측</h3>
           <p>신랑 철수</p>
           <IconButton onClick={() => handleCall('010-1234-5678')}>
             <FaPhone /> 연락하기
           </IconButton>
         </ContactCard>
-        <ContactCard>
+        <ContactCard variants={itemVariants}>
           <h3>신부측</h3>
           <p>신부 영희</p>
           <IconButton onClick={() => handleCall('010-8765-4321')}>

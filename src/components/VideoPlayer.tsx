@@ -1,6 +1,7 @@
 import styled from '@emotion/styled';
-
-const Container = styled.section`
+import { motion } from 'framer-motion';
+import { containerVariants, itemVariants } from '../util/animation';
+const Container = styled(motion.section)`
   padding: 4rem 2rem;
   background-color: #f9f9f9;
   display: flex;
@@ -8,7 +9,7 @@ const Container = styled.section`
   align-items: center;
 `;
 
-const Title = styled.h2`
+const Title = styled(motion.h2)`
   text-align: center;
   font-size: 2rem;
   margin-bottom: 3rem;
@@ -39,7 +40,7 @@ const Title = styled.h2`
   }
 `;
 
-const VideoContainer = styled.div`
+const VideoContainer = styled(motion.div)`
   width: 100%;
   max-width: 800px;
   margin: 0 auto;
@@ -73,11 +74,15 @@ const IframeWrapper = styled.div`
 const VideoPlayer = () => {
   // 실제 유튜브 영상 ID로 교체 필요
   const videoId = 'K4zm30yeHHE'; // 웨딩 영상 예시
-
   return (
-    <Container>
-      <Title>웨딩 영상</Title>
-      <VideoContainer aria-hidden='false'>
+    <Container
+      variants={containerVariants}
+      initial='hidden'
+      whileInView='visible'
+      viewport={{ once: true, margin: '-100px' }}
+    >
+      <Title variants={itemVariants}>웨딩 영상</Title>
+      <VideoContainer variants={itemVariants} aria-hidden='false'>
         <IframeWrapper>
           <iframe
             src={`https://www.youtube.com/embed/${videoId}?autoplay=0&rel=0&modestbranding=1&enablejsapi=1&origin=${window.location.origin}`}

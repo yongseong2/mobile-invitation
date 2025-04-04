@@ -1,7 +1,9 @@
 import styled from '@emotion/styled';
 import { FaRegCalendarAlt, FaClock, FaMapMarkerAlt } from 'react-icons/fa';
+import { containerVariants, itemVariants } from '../util/animation';
+import { motion } from 'framer-motion';
 
-const Container = styled.section`
+const Container = styled(motion.section)`
   padding: 4rem 2rem;
   background-color: white;
   display: flex;
@@ -9,7 +11,7 @@ const Container = styled.section`
   align-items: center;
 `;
 
-const Title = styled.h2`
+const Title = styled(motion.h2)`
   text-align: center;
   font-size: 2rem;
   margin-bottom: 3rem;
@@ -40,7 +42,7 @@ const Title = styled.h2`
   }
 `;
 
-const CalendarCard = styled.div`
+const CalendarCard = styled(motion.div)`
   max-width: 500px;
   margin: 0 auto;
   padding: 2rem;
@@ -130,9 +132,14 @@ const Calendar = () => {
   };
 
   return (
-    <Container>
-      <Title>날짜 안내</Title>
-      <CalendarCard>
+    <Container
+      variants={containerVariants}
+      initial='hidden'
+      whileInView='visible'
+      viewport={{ once: true, margin: '-100px' }}
+    >
+      <Title variants={itemVariants}>날짜 안내</Title>
+      <CalendarCard variants={itemVariants}>
         <DateDisplay>
           2024. <span>00</span>. <span>00</span>
         </DateDisplay>

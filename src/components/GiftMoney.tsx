@@ -1,8 +1,10 @@
 import styled from '@emotion/styled';
 import { useState } from 'react';
 import { FaCopy } from 'react-icons/fa';
+import { motion } from 'framer-motion';
+import { containerVariants, itemVariants } from '../util/animation';
 
-const Container = styled.section`
+const Container = styled(motion.section)`
   padding: 4rem 2rem;
   background-color: white;
   display: flex;
@@ -10,7 +12,7 @@ const Container = styled.section`
   align-items: center;
 `;
 
-const Title = styled.h2`
+const Title = styled(motion.h2)`
   text-align: center;
   font-size: 2rem;
   margin-bottom: 3rem;
@@ -54,7 +56,7 @@ const AccountGrid = styled.div`
   }
 `;
 
-const AccountCard = styled.div`
+const AccountCard = styled(motion.div)`
   padding: 2.5rem;
   border: 1px solid #eee;
   border-radius: 16px;
@@ -190,11 +192,16 @@ const GiftMoney = () => {
   };
 
   return (
-    <Container>
-      <Title>축의금 계좌번호</Title>
+    <Container
+      variants={containerVariants}
+      initial='hidden'
+      whileInView='visible'
+      viewport={{ once: true, margin: '-100px' }}
+    >
+      <Title variants={itemVariants}>축의금 계좌번호</Title>
       <AccountGrid>
         {accounts.map(({ id, title, name, bank, account }) => (
-          <AccountCard key={id}>
+          <AccountCard key={id} variants={itemVariants}>
             <AccountTitle>{title}</AccountTitle>
             <AccountInfo>
               <p>{name}</p>

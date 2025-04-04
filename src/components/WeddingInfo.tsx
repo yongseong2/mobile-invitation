@@ -1,5 +1,6 @@
 import styled from '@emotion/styled';
 import { motion } from 'framer-motion';
+import { containerVariants, itemVariants } from '../util/animation';
 
 const Container = styled.section`
   padding: 6rem 2rem;
@@ -96,27 +97,6 @@ const Decoration = styled(motion.div)`
 `;
 
 const WeddingInfo = () => {
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.3,
-      },
-    },
-  };
-
-  const itemVariants = {
-    hidden: { opacity: 0, y: 20 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: {
-        duration: 0.6,
-      },
-    },
-  };
-
   return (
     <Container>
       <MotionContainer

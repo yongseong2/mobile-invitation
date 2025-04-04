@@ -1,7 +1,9 @@
 import styled from '@emotion/styled';
 import { FaSubway, FaBus, FaCar } from 'react-icons/fa';
+import { motion } from 'framer-motion';
+import { containerVariants, itemVariants } from '../util/animation';
 
-const Container = styled.section`
+const Container = styled(motion.section)`
   padding: 4rem 2rem;
   background-color: #f9f9f9;
   display: flex;
@@ -9,7 +11,7 @@ const Container = styled.section`
   align-items: center;
 `;
 
-const Title = styled.h2`
+const Title = styled(motion.h2)`
   text-align: center;
   font-size: 2rem;
   margin-bottom: 3rem;
@@ -39,7 +41,7 @@ const Title = styled.h2`
   }
 `;
 
-const VenueInfo = styled.div`
+const VenueInfo = styled(motion.div)`
   text-align: center;
   margin-bottom: 2rem;
 
@@ -55,7 +57,7 @@ const VenueInfo = styled.div`
   }
 `;
 
-const MapContainer = styled.div`
+const MapContainer = styled(motion.div)`
   width: 100%;
   height: 500px;
 
@@ -69,7 +71,11 @@ const MapContainer = styled.div`
   }
 `;
 
-const TransportInfo = styled.div`
+const TransportInfo = styled(motion.div)`
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  width: 100%;
   h3 {
     font-size: 1.2rem;
     margin-bottom: 1rem;
@@ -77,7 +83,7 @@ const TransportInfo = styled.div`
   }
 `;
 
-const TransportItem = styled.div`
+const TransportItem = styled(motion.div)`
   display: flex;
   align-items: center;
   margin-bottom: 1rem;
@@ -95,15 +101,20 @@ const TransportItem = styled.div`
 
 const Location = () => {
   return (
-    <Container>
-      <Title>오시는 길</Title>
-      <VenueInfo>
+    <Container
+      variants={containerVariants}
+      initial='hidden'
+      whileInView='visible'
+      viewport={{ once: true, margin: '-100px' }}
+    >
+      <Title variants={itemVariants}>오시는 길</Title>
+      <VenueInfo variants={itemVariants}>
         <h3>웨딩베뉴</h3>
         <p>서울특별시 강남구 테헤란로 123</p>
         <p>럭셔리웨딩홀 3층 그랜드볼룸</p>
       </VenueInfo>
 
-      <MapContainer>
+      <MapContainer variants={itemVariants}>
         {/* 여기에 실제 지도를 넣을 수 있습니다 */}
         <div
           style={{
@@ -118,7 +129,7 @@ const Location = () => {
         </div>
       </MapContainer>
 
-      <TransportInfo>
+      <TransportInfo variants={itemVariants}>
         <h3>교통안내</h3>
         <TransportItem>
           <FaSubway size={20} />
